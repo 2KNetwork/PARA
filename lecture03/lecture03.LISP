@@ -169,7 +169,7 @@ nastane ve chvili, kdy jsou ukazatele bottom a top rovny.
       ;CONSUMER
         (let (item)
           (loop until (and end (eql top bottom)) do
-                (await (not (eql top bottom)))
+                (await (or (not (eql top bottom)) end))
                 (if (not (= bottom top))
                     (progn
                       (setf item (nth bottom buffer))                     
